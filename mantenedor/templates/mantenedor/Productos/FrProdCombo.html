@@ -1,0 +1,11 @@
+ 	<label class="col-sm-3 control-label" for="input01">Proveedor</label>
+	<div class="col-sm-3">
+	  <select notnull=""  title="idProv" 
+				type="text" class="input-large required " id="cbProveedor" name="cbProveedor" 
+				onchange="mpProducto.loadCombo(document.getElementById('cbProveedor').value)" 
+	            style="width: 400px">
+	       {% for prov in ParProv %}
+	             <option value='{{prov.idProv}}'>{{prov.nombreProv}}</option>
+	       {% endfor %}
+	  </select>
+	</div>

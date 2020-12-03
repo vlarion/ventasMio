@@ -1,0 +1,137 @@
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <table id="tblTitulo1" class="table1" width="100%">
+                      <tr>
+                        <td>
+                          <h2><b>&nbsp;&nbsp;Productos</b></h2></td>
+					  </tr>
+					  
+                    </table>
+<hr>
+					<button type="button" disabled1 align="left" class="btn  btn-success" onclick="javascript:mpProducto.Listar();"><i class="fa fa-floppy-save"></i>Ver lista de productos</button>
+					<div class="container_table box-title table-responsive" style="width: 100%">
+					  	<form class="form-horizontal well" id="forms-registro">						
+							
+					  		<div class="form-group">
+   							  <label class="col-sm-3 control-label" for="input01">Código</label>
+   							  <div class="col-sm-3">
+									 <input notnull="" title="Codigo" type="text" class="input-large required " id="txCodigo" name="txCodigo" 
+									 		maxlength="10" value="{{ParRegistros.idProducto}}">
+   							  </div>
+   						  	</div>
+						  	<div class="form-group">
+   							  	<label class="col-sm-3 control-label" for="input01">Nombre</label>
+   							  	<div class="col-sm-3">
+									 <input notnull="" title="Nombre" disabled type="text" class="input-large required " id="txNombre" name="txNombre" 
+									 		maxlength="10" value="{{ParRegistros.nombreProd}}">
+   							  	</div>
+   						  	</div>						  
+						 	<div class="form-group">
+   							  <label class="col-sm-3 control-label" for="input01">Precio</label>
+   							  <div class="col-sm-3">
+									 <input notnull="" title="Precio" disabled type="text" class="input-large required " id="txPrecio" name="txPrecio" 
+									 		maxlength="100" value="{{ParRegistros.precio}}">
+   							  </div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Estado</label>
+								<div class="col-sm-3">
+									<input notnull="" title="Estado" disabled type="text" class="input-large required " id="txEstado" name="txEstado" 
+											maxlength="100" value="{{ParRegistros.estado}}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Garantía</label>
+								<div class="col-sm-3">
+									<input notnull="" title="Garantia" disabled type="text" class="input-large required " id="txGarantia" name="txGarantia" 
+											maxlength="100" value="{{ParRegistros.garantia}}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Stock</label>
+								<div class="col-sm-3">
+									<input notnull="" title="Cantidad" disabled type="text" class="input-large required " id="txCantidad" name="txCantidad" 
+											maxlength="100" value="{{ParRegistros.cantidad}}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" disabled for="input01">Ficha técnica</label>
+								<div class="col-sm-3">
+									<input notnull="" title="Ficha" disabled type="text" class="input-large required " id="txFicha" name="txFicha" 
+											maxlength="500" value="{{ParRegistros.fichaTecnica}}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Descripción</label>
+								<div class="col-sm-3">
+									<input notnull="" title="Descripcion" disabled type="text" class="input-large required " id="txDescrip" name="txDescrip" 
+										   maxlength="500" value="{{ParRegistros.descripcion}}">
+								</div>
+							</div>	
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Imagen</label>
+								<div class="col-sm-3">
+									<input notnull=""  title="ImgProducto" disabled type="text" class="input-large required " id="txImagen" name="txImagen" 
+											maxlength="500" value="{{ParRegistros.imgProducto}}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Marca</label>
+								<div class="col-sm-3">
+								<select notnull="" disabled title="Marca" type="text" id="cbMarca" name="cbMarca" class="input-large required" style="width: 350px">
+									{% for regMarca in ParMarca %}
+										<option value="{{regMarca.idMarca}}">{{regMarca.nombreMarca}}</option>
+									{% endfor %}	
+								  </select>
+								</div>
+							  </div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Modelo</label>
+								<div class="col-sm-3">
+									<select notnull="" disabled title="Modelo"  id="cbModelo" name="cbModelo" class="input-large required" style="width: 350px;">
+										{% for regModelo in ParModelo %}
+											<option value="{{regModelo.idModelo}}">{{regModelo.nombreModelo}}</option>
+											{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="input01">Proveedor</label>
+								<div class="col-sm-3">
+								<select notnull="" disabled title="Proveedor" id="cbProveedor" name="cbProveedor" class="input-large required" style="width: 350px;">
+									{% for regProv in ParProv %}
+										<option value="{{regProv.idProv}}">{{regProv.nombreProv}}</option>	
+									{% endfor %}		
+								</select>
+								</div>
+							</div>
+							
+							
+							 						
+						 <div class="form-actions">
+							
+			 			  <table width="100%" border="0"><tbody><tr>
+							   <td width="100%" align="right">							
+								
+								<button type="button" disabled1 name="btVer" id="btVer" align="right" class="btn  btn-success" onclick="javascript:mpProducto.Leer('Codigo');"><i class="fa fa-floppy-save"></i> Ver</button>
+								<button type="button" disabled name="btActualizar" id="btActualizar" align="right" class="btn  btn-warning" onclick="javascript:mpProducto.Actualizar();"><i class="fa fa-floppy-save"></i> Actualizar</button>	
+								<button type="button" disabled name="btEliminar" id="btEliminar" align="right" class="btn  btn-danger" onclick="javascript:mpProducto.Eliminar();"><i class="fa fa-floppy-save"></i> Eliminar</button>						
+								<button type="button" disabled1 name="btCancelar" id="btCancelar" align="right" class="btn  btn-primary" onclick="javascript:mpProducto.Cancelar();"><i class="fa fa-floppy-save"></i> Cancelar</button>	
+								<button type="button" disabled name="btCrear" id="btCrear" align="right" class="btn  btn-success" onclick="javascript:mpProducto.Crear();"><i class="fa fa-floppy-save"></i> </button>
+														
+						</td></tr></tbody></table>
+			 			</div>
+						  </form>
+					  </div>
+
+<!-- **************************************************************************-->
+
+  </div>
+</div>
+</div>
+</div>
+</section>
